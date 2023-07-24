@@ -1,0 +1,115 @@
+<div class="container my-5">
+  <h2>Test Kits</h2>
+
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+
+  <div class="form-row my-3 .form-inline">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1" (click)="sort('id')">
+                    <h6>ID &nbsp;<i class="fa fa-sort"></i></h6>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Id" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+            </th>
+            <th>
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1" (click)="sort('name')">
+                    <h6>Name &nbsp;<i class="fa fa-sort"></i></h6>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Name" [(ngModel)]="filterName" (ngModelChange)="SearchName()">
+              </div>
+            </th>
+            <th>
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1" (click)="sort('category')">
+                    <h6>Category &nbsp;<i class="fa fa-sort"></i></h6>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Category" [(ngModel)]="filterCategory" (ngModelChange)="Search()">
+              </div>
+            </th>
+            <th>
+              <div class="input-group input-group-sm mb-3">
+                Availability
+              </div>
+            </th>
+            <th>
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1" (click)="sort('brand')">
+                    <h6>Brand &nbsp;<i class="fa fa-sort"></i></h6>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Brand" [(ngModel)]="filterBrand" (ngModelChange)="SearchBrand()">
+              </div>
+            </th>
+            <th>
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1" (click)="sort('popularity')">
+                    <h6>Popularity &nbsp;<i class="fa fa-sort"></i></h6>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Popularity" [(ngModel)]="filterPopularity" (ngModelChange)="SearchPopularity()">
+              </div>
+            </th>
+            <th>
+              <div class="input-group input-group-sm mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1" (click)="sort('releaseDate')">
+                    <h6>Release Date &nbsp;<i class="fa fa-sort"></i></h6>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Release Date" [(ngModel)]="filterReleaseDate" (ngModelChange)="SearchReleaseDate()">
+              </div>
+            </th>
+            <th>
+              <div class="input-group input-group-sm mb-4">
+                Action
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center" *ngIf="testKits.length === 0">
+            <td colspan="8">
+              <h6>No test kits available.</h6>
+            </td>
+          </tr>
+          <tr *ngFor="let testKit of testKits | paginate:paginationConfig">
+            <td class="text-center">{{ testKit.id }}</td>
+            <td class="text-center">{{ testKit.name }}</td>
+            <td class="text-center">{{ testKit.category.name }}</td>
+            <td class="text-center">{{ testKit.availability }}</td>
+            <td class="text-center">{{ testKit.brand.name }}</td>
+            <td class="text-center">{{ testKit.popularity }}</td>
+            <td class="text-center">{{ testKit.releaseDate }}</td>
+            <td>
+              <button class="badge bg-primary text-dark" (click)="navigateToEditPage(testKit.id)">Edit</button>
+              <br>
+              <button class="badge bg-danger text-dark" (click)="deleteTestKit(testKit.id)">Delete</button>
+              <br>
+              <button class="badge bg-success text-dark" (click)="(testKit.id)">Cart</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <pagination-controls (pageChange)="paginationConfig.currentPage = $event"></pagination-controls>
+  </div>
+  <button class="badge bg-warning text-dark" (click)="navigateToCreatePage()">Add Testkit</button>
+</div>
+
+<!-- Include Bootstrap JS and jQuery -->

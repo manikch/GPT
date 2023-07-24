@@ -1,0 +1,46 @@
+
+  <div class="row justify-content-md-center">
+    <div *ngIf="testKit">
+      <h2>Edit Test Kit</h2>
+      <form (ngSubmit)="updateTestKit()" class="justify-content-md-cente col-sm-4" #editForm="ngForm">
+        <div class="col-sm-8" class="form-group">
+          <label for="name" class="col-sm-8">Name:</label>
+          <input type="text"  class="col-sm-8"class="form-control" id="name" name="name" [(ngModel)]="testKit.name" required>
+        </div>
+        <div class="form-group">
+          <label for="category">Category:</label>
+          <input type="text" class="form-control" id="category" name="category" [(ngModel)]="testKit.category.name" required>
+        </div>
+        <div class="form-group">
+          <label for="category">Brand:</label>
+          <input type="text" class="form-control" id="brand" name="brand" [(ngModel)]="testKit.brand.name" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="category">Availability:</label>
+          <input type="text" class="form-control" id="availability" name="availability" [(ngModel)]="testKit.availability" required>
+        </div>
+        <div class="form-group">
+          <label for="category">Popularity:</label>
+          <input type="text" class="form-control" id="popularity" name="popularity" [(ngModel)]="testKit.popularity" required>
+        </div>
+        <div class="form-group">
+          <label for="category">ReleaseDate:</label>
+          <input type="Date" class="form-control" id="releaseDate" name="releaseDate" [(ngModel)]="testKit.releaseDate" required>
+          </div>
+    
+          <div class="form-group">
+  
+        <!-- Add more form fields as needed -->
+        <button type="submit" class="badge bg-success text-dark">Update Test Kit</button>
+        </div>
+      </form>
+      <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+    </div>
+edwce
+    <img src="https://storage.googleapis.com/download/storage/v1/b/jainsta-cdef6.appspot.com/o/90f37a16-1ade-40f8-b2ca-a41e12f06d42jpeg?generation=1689866478387500&alt=media" alt="Girl in a jacket" width="500" height="600">
+
+  </div>
+  
+   
+

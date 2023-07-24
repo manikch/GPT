@@ -1,0 +1,33 @@
+<h2>Create Test Kit</h2>
+
+<form [formGroup]="orderForm" (ngSubmit)="createTestKit()" class="justify-content-md-cente col-sm-4">
+  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <div class="form-group ">
+    <label for="name">Name:</label>
+    <input type="text" class="form-control"  formControlName="name" id="name"  name="name"[(ngModel)]="testKit.name"    required>
+  </div>
+  <div class="form-group">
+    <label for="category">Category:</label>
+    <input type="text" class="form-control" formControlName="category" id="category"[(ngModel)]="testKit.category.name"  required>
+
+  </div>
+  <div class="form-group">
+    <label for="availability">Availability:</label>
+    <input type="checkbox" id="availability"  formControlName="availability" [(ngModel)]="testKit.availability">
+  </div>
+  <div class="form-group">
+    <label for="brand">Brand:</label>
+    <input type="text" class="form-control" formControlName="brand" id="brand" [(ngModel)]="testKit.brand.name" required>
+
+  </div>
+  <div class="form-group">
+    <label for="popularity">Popularity:</label>
+    <input type="number" class="form-control" formControlName="popularity" id="popularity" [(ngModel)]="testKit.popularity"  required>
+  </div>
+  <div class="form-group">
+    <label for="releaseDate">Release Date:</label>
+    <input type="date" class="form-control" id="releaseDate" formControlName="releaseDate" [(ngModel)]="testKit.releaseDate" required>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="orderForm.invalid">Create</button>
+</form>
