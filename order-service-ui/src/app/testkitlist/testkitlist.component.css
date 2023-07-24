@@ -1,0 +1,56 @@
+body{margin-top:20px;
+    background:#eee;
+    }
+    .card {
+        box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+    }
+    .avatar.sm {
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: .818125rem;
+    }
+    .table-nowrap .table td, .table-nowrap .table th {
+        white-space: nowrap;
+    }
+    .table>:not(caption)>*>* {
+        padding: 0.75rem 1.25rem;
+        border-bottom-width: 1px;
+    }
+    table th {
+        font-weight: 600;
+        background-color: #eeecfd !important;
+    }
+
+    .btn-fancy {
+        background-color: #ff4081;
+        color: #ffffff;
+        border-radius: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+      
+      .btn-fancy:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .navbar-custom {
+        background-color: #ff5500;
+    }
+    /* change the brand and text color */
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-text {
+        color: rgba(255,255,255,.8);
+    }
+    /* change the link color */
+    .navbar-custom .navbar-nav .nav-link {
+        color: rgba(255,255,255,.5);
+    }
+    /* change the color of active or hovered links */
+    .navbar-custom .nav-item.active .nav-link,
+    .navbar-custom .nav-item:hover .nav-link {
+        color: #ffffff;
+    }
+      
